@@ -1,0 +1,69 @@
+.about-project {
+    margin: 0;
+    padding: 110px 70px;
+}
+
+.about-project__title {
+    margin-bottom: 70px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid black;
+    /* Inter Regular */
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+}
+
+.about-project__items {
+    margin-bottom: 110px;
+    padding: 0;
+    display: flex;
+    column-gap: 40px;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.about-project__subtitle {
+    margin: 0 0 26px;
+    color: #A0A0A0;
+    /* Inter Medium */
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.about-project__description {
+    margin: 0;
+    padding: 0;
+    /* Inter Regular */
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.about-project__timeline {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 36px;
+    row-gap: 14px;
+    text-align: center;
+    /* Inter Regular */
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.about-project__deadline {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-project__deadline:first-child {
+    background-color: #2BE080;
+}
+
+.about-project__deadline:nth-child(2) {
+    background-color: #F2F2F2;
+}

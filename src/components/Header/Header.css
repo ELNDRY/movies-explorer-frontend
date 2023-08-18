@@ -1,0 +1,35 @@
+.header {
+    min-height: 74px;
+    padding: 0 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #465DFF;
+}
+
+.header__links {
+    display: flex;
+    align-items: center;
+}
+
+.header__link {
+    text-decoration: none;
+    color: white;
+    /* Inter Medium */
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.header__link_signup:hover {
+    transition: opacity 0.2s;
+    opacity: 0.7
+}
+
+.header__link_signin {
+    margin-left: 30px;
+    padding: 8px 20px;
+    color: black;
+    background-color: #2BE080;
+    border-radius: 3px;
+}
