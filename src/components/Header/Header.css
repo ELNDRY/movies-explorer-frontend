@@ -2,13 +2,23 @@
     min-height: 74px;
     padding: 0 70px;
     display: flex;
+    box-sizing: border-box;
     align-items: center;
     justify-content: space-between;
+}
+
+.header_main {
     background-color: #465DFF;
 }
 
 .header__links {
     display: flex;
+    align-items: center;
+}
+
+.header__container_main {
+    display: flex;
+    gap: 30px;
     align-items: center;
 }
 
@@ -27,7 +37,6 @@
 }
 
 .header__link_signin {
-    margin-left: 30px;
     padding: 8px 20px;
     color: black;
     background-color: #2BE080;
