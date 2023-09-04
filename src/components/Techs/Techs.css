@@ -5,7 +5,7 @@
 }
 
 .techs__title {
-    margin-bottom: 90px;
+    margin: 0 0 90px;
     padding-bottom: 23px;
     border-bottom: 1px solid black;
     /* Inter Regular */
@@ -21,16 +21,17 @@
 }
 
 .techs__subtitle {
-    margin-bottom: 26px;
+    margin: 0 0 26px;
     /* Inter Regular */
     font-weight: 400;
     font-size: 50px;
     line-height: 58px;
+    letter-spacing: -4%;
 }
 
 .techs__description {
     max-width: 460px;
-    margin-bottom: 100px;
+    margin: 0 0 100px;
     text-align: center;
     /* Inter Regular */
     font-weight: 400;

@@ -11,6 +11,10 @@
     background-color: #465DFF;
 }
 
+.header__logo-link {
+    font-size: 0;
+}
+
 .header__links {
     display: flex;
     align-items: center;

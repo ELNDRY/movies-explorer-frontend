@@ -26,6 +26,7 @@
 }
 
 .footer__copyright {
+    margin: 0;
     /* Inter Regular */
     font-weight: 400;
     font-size: 13px;

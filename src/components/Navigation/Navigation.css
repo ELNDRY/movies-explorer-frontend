@@ -2,6 +2,7 @@
     display: flex;
     position: relative;
     width: calc((1058 / 1140) * 100%);   
+    background-color: transparent;
 }
 
 .navigation__burger {

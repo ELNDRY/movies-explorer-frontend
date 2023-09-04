@@ -4,7 +4,7 @@ import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { DesktopMenu } from '../DesktopMenu/DesktopMenu';
 import '../Navigation/Navigation.css';
 
-export const Navigation = () => {
+export const Navigation = ({ isMainPage }) => {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 
   const handleBurgerOpen = () => {
@@ -15,12 +15,12 @@ export const Navigation = () => {
     setIsBurgerOpen(false);
   }
 
-  let type = isBurgerOpen ? 'in' : 'out';
+  let typeBurger = isBurgerOpen ? 'in' : 'out';
 
-  const sideBarClassName = (`navigation__sidebar navigation__sidebar_${type}`)
+  const sideBarClassName = (`navigation__sidebar navigation__sidebar_${typeBurger}`)
 
   return (
-    <Header>
+    <Header isMainPage={isMainPage}>
       <nav className="navigation">
         <button
           onClick={handleBurgerOpen}
@@ -34,7 +34,7 @@ export const Navigation = () => {
           ></button>
           <BurgerMenu />
         </div>
-        <DesktopMenu />
+        <DesktopMenu isMainPage={isMainPage} />
       </nav>
     </Header>
   );
