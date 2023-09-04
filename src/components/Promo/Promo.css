@@ -1,6 +1,5 @@
 .promo {
-    padding: 75px 70px 25px;
-    margin-bottom: 50px;
+    padding: 75px 70px 75px;
     background-color: #465DFF;
     color: white;
     box-sizing: border-box;
@@ -20,7 +19,7 @@
 
 .promo__title {
     max-width: 640px;
-    margin-bottom: 36px;
+    margin: 0 0 36px;
     padding: 0;
     /* Inter Regular */
     font-weight: 400;
@@ -40,8 +39,8 @@
 }
 
 .promo__about-link {
-    width: 129px;
-    height: 36px;
+    width: 127px;
+    height: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,4 +60,44 @@
 .promo__about-link:hover {
     transition: opacity 0.2s;
     opacity: 0.7
+}
+
+@media screen and (max-width: 769px) {
+    .promo {
+        flex-direction: column;
+        padding: 140px 0 76px;
+        align-items: center;
+    }
+
+    .promo__wrapper {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .promo__logo {
+        order: 1;
+        margin-bottom: 48px;
+    }
+
+    .promo__title {
+        max-width: 680px;
+        margin-bottom: 22px;
+        text-align: center;
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .promo__description {
+        max-width: 260px;
+        margin-top: 0;
+        margin-bottom: 92px;
+        text-align: center;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+
 }

@@ -12,3 +12,19 @@
     column-gap: 24px;
     row-gap: 30px;
 }
+
+@media screen and (max-width: 769px) {
+    .movies-card-list__list {
+        gap: 37px 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .movies-card-list {
+        padding-top: 50px;
+    }
+
+    .movies-card-list__ {
+        row-gap: 16px;
+    }
+}

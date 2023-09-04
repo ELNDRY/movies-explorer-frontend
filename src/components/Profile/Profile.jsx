@@ -3,7 +3,12 @@ import { Navigation } from "../Navigation/Navigation"
 
 import "./Profile.css"
 
-export const Profile = () => {
+export const Profile = ({ onLogout }) => {
+
+    const handleLogout = (evt) => {
+        evt.preventDefault();
+        onLogout();
+    }
     return (
         <>
             <Navigation />
@@ -34,7 +39,7 @@ export const Profile = () => {
                 </form>
                 <div className="profile__wrapper">
                     <button type="submit" className="profile__edit-button">Редактировать</button>
-                    <Link to="/" className="profile__exit-button">Выйти из аккаунта</Link>
+                    <Link to="/" className="profile__exit-button" onClick={handleLogout}>Выйти из аккаунта</Link>
                 </div>
             </section>
         </>

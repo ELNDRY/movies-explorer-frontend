@@ -1,40 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '../Header/Header';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { DesktopMenu } from '../DesktopMenu/DesktopMenu';
+import { resolutionTablet } from '../../utils/constants';
+import { useWindowSize } from '../../hooks/useWindowSize';
 import '../Navigation/Navigation.css';
 
-export const Navigation = () => {
-  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+export const Navigation = ({ isMainPage }) => {
+  const [isResolutionDesktop, setIsResoluyionDesktop] = useState(true);
+  const windowSize = useWindowSize()
 
-  const handleBurgerOpen = () => {
-    setIsBurgerOpen(true);
-  };
-
-  const handleBurgerClose = () => {
-    setIsBurgerOpen(false);
-  }
-
-  let type = isBurgerOpen ? 'in' : 'out';
-
-  const sideBarClassName = (`navigation__sidebar navigation__sidebar_${type}`)
+  useEffect(() => {
+    setIsResoluyionDesktop(windowSize.width > resolutionTablet.width);
+  }, [windowSize]);
 
   return (
-    <Header>
+    <Header isMainPage={isMainPage}>
       <nav className="navigation">
-        <button
-          onClick={handleBurgerOpen}
-          className="navigation__burger"
-        ></button>
-        {isBurgerOpen && <div className="navigation__overlay" />}
-        <div className={sideBarClassName}>
-          <button
-            className="burger__close-button"
-            onClick={handleBurgerClose}
-          ></button>
-          <BurgerMenu />
-        </div>
-        <DesktopMenu />
+        {!isResolutionDesktop && <BurgerMenu />}
+        {isResolutionDesktop && <DesktopMenu isMainPage={isMainPage} />}
       </nav>
     </Header>
   );

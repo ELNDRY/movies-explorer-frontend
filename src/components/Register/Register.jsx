@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Header } from "../Header/Header"
 import { Form } from '../Form/Form';
 
 export const Register = ({ onRegister }) => {
@@ -21,13 +20,12 @@ export const Register = ({ onRegister }) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        onRegister(formValue);
+        onRegister();
     }
 
     return (
         <section className="register">
-            <Header />
-            <Form title="Добро пожаловать!">
+            <Form title="Добро пожаловать!" onSubmit={handleSubmit}>
                 <p className="form__label">Имя</p>
                 <input id="name" className="form__input" name="name" type="text" placeholder="Email"
                     minLength="2" maxLength="40"
@@ -45,8 +43,8 @@ export const Register = ({ onRegister }) => {
                     minLength="6"
                     maxLength="20"
                     value={formValue.password} required />
-                <span className="form__input-error password-error"></span>
-                <button className="form__submit-button" type="submit">Зарегистрироваться</button>
+                <span className="form__input-error password-error">Что-то пошло не так...</span>
+                <button className="form__submit-button form__submit-button_register" type="submit">Зарегистрироваться</button>
                 <p className="form__text">Уже зарегистрированы?&nbsp;
                     <Link className="form__link" to="/signin">Войти</Link>
                 </p>

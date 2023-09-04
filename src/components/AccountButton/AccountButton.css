@@ -25,3 +25,11 @@
     vertical-align: middle;
 
 }
+
+.account-link_main {
+    color: white;
+}
+
+.account-link_main::after {
+    background-color: #2BE080;
+}

@@ -87,3 +87,18 @@ export const movies = [
 ];
 
 export const savedMovies = movies.filter((movie) => movie.isSaved);
+
+export const resolutionDesktop = {
+    width: 1280,
+    cardsCount: 12,
+};
+
+export const resolutionTablet = {
+    width: 769,
+    cardsCount: 8,
+};
+
+export const resolutionMobile = {
+    width: 480,
+    cardsCount: 5,
+};

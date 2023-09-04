@@ -30,7 +30,9 @@ export const MoviesCard = (props) => {
                 </div>
                 <button className={buttonClassName} />
             </div>
-            <img className="movies-card__image" src={movie.image} alt={movie.name} />
+            <a className="movies-card__link" target="_blank" rel="noreferrer">
+                <img className="movies-card__image" src={movie.image} alt={movie.name} />
+            </a>
         </li>
     );
 }
