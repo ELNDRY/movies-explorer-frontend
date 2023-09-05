@@ -77,8 +77,8 @@
     }
 
     .promo__logo {
-        order: 1;
-        margin-bottom: 48px;
+        width: 210px;
+        height: 206px;
     }
 
     .promo__title {
@@ -99,5 +99,22 @@
 
 
 @media screen and (max-width: 480px) {
+    .promo {
+        padding: 70px 0 30px;
+    }
 
+    .promo__logo {
+        order: 1;
+        margin-bottom: 48px;
+    }
+
+    .promo__title {
+        max-width: 300px;
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .promo__description {
+        margin-bottom: 80px;
+    }
 }

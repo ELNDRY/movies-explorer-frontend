@@ -27,7 +27,7 @@ export const Register = ({ onRegister }) => {
         <section className="register">
             <Form title="Добро пожаловать!" onSubmit={handleSubmit}>
                 <p className="form__label">Имя</p>
-                <input id="name" className="form__input" name="name" type="text" placeholder="Email"
+                <input id="name" className="form__input" name="name" type="text" placeholder="Имя"
                     minLength="2" maxLength="40"
                     onChange={handleChange}
                     value={formValue.name} required />

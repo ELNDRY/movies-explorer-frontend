@@ -2,8 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     flex-direction: column;
     height: 100vh;
+    padding: 246px 0 60px;
 }
 
 .not-found__title {
@@ -20,10 +22,42 @@
     line-height: 19px;
 }
 
-.not-found__link-back {
-    text-decoration: none;
+.not-found__button-back {
     color: #FF6838;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.not-found__button-back:hover {
+    transition: opacity 0.2s;
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+    .not-found {
+        padding: 408 10px 222px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .not-found {
+        padding: 329px 10px 30px;
+    }
+
+    .not-found__title {
+        font-size: 80px;
+        line-height: 96.8px;
+        margin-bottom: 10px;
+    }
+
+    .not-found__text {
+        font-size: 12px;
+        margin-bottom: 284px;
+        font-size: 12px;
+        line-height: 14.5px;
+    }
 }

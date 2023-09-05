@@ -14,7 +14,7 @@
 }
 
 @media screen and (max-width: 769px) {
-    .movies-card-list__list {
+    .movies-card-list__elements {
         gap: 37px 30px;
     }
 }
@@ -24,7 +24,7 @@
         padding-top: 50px;
     }
 
-    .movies-card-list__ {
+    .movies-card-list__elements {
         row-gap: 16px;
     }
 }

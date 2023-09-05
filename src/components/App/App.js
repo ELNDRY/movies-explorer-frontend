@@ -35,16 +35,19 @@ export const App = () => {
                     <Route path='/signup' element={<Register onRegister={handleRegister} />} />
                     <Route path='/signin' element={<Login onLogin={handleLogin} />} />
                     <Route path='/' element={<Main isLoggedIn={isLoggedIn} />} />
-                    <Route path="*" element={
+                    <Route path='/movies' element={
                         <ProtectedRoute isLoggedIn={isLoggedIn}>
-                            <Routes>
-                                <Route path='/movies' element={<Movies />} />
-                                <Route path='/saved-movies' element={<SavedMovies />} />
-                                <Route path='/profile' element={<Profile onLogout={handleLogout} />} />
-                                <Route path="*" element={<NotFound />} />
-                            </Routes>
-                        </ProtectedRoute>}>
-                    </Route>
+                            <Movies />
+                        </ProtectedRoute>} />
+                    <Route path='/saved-movies' element={
+                        <ProtectedRoute isLoggedIn={isLoggedIn}>
+                            <SavedMovies />
+                        </ProtectedRoute>} />
+                    <Route path='/profile' element={
+                        <ProtectedRoute isLoggedIn={isLoggedIn}>
+                            <Profile onLogout={handleLogout} />
+                        </ProtectedRoute>} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </main>
         </div>

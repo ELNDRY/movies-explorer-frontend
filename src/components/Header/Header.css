@@ -15,6 +15,11 @@
     font-size: 0;
 }
 
+.header__logo-link:hover {
+    transition: opacity 0.2s;
+    opacity: 0.8;
+}
+
 .header__links {
     display: flex;
     align-items: center;
@@ -37,7 +42,7 @@
 
 .header__link_signup:hover {
     transition: opacity 0.2s;
-    opacity: 0.7
+    opacity: 0.7;
 }
 
 .header__link_signin {
@@ -47,14 +52,19 @@
     border-radius: 3px;
 }
 
+.header__link_signin:hover {
+    transition: opacity 0.2s;
+    opacity: 0.8;
+}
+
 @media screen and (max-width: 769px) {
     .header {
-      padding: 0 30px;
+        padding: 0 30px;
     }
-  }
-  
-  @media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 480px) {
     .header {
-      padding: 0 14px;
+        padding: 0 14px;
     }
-  }
+}
