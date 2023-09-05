@@ -30,7 +30,6 @@ export const DesktopMenu = ({ isMainPage }) => {
                 </li>
             </ul>
             <AccountButton isMainPage={isMainPage} />
-            <AccountButton isMainPage={isMainPage} />
         </div>
     );
 };

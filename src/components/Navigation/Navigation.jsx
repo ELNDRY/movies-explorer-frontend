@@ -16,7 +16,6 @@ export const Navigation = ({ isMainPage }) => {
 
   return (
     <Header isMainPage={isMainPage}>
-    <Header isMainPage={isMainPage}>
       <nav className="navigation">
         {!isResolutionDesktop && <BurgerMenu />}
         {isResolutionDesktop && <DesktopMenu isMainPage={isMainPage} />}

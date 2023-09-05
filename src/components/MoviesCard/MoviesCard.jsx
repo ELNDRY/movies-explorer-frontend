@@ -20,7 +20,7 @@ export const MoviesCard = (props) => {
         buttonClassName = (`movies-card__button movies-card__button_${type}`);
     }
 
-
+// TODO movies-card__link href will lead to movie's trailer
     return (
         <li className="movies-card">
             <div className="movies-card__description">
@@ -30,7 +30,7 @@ export const MoviesCard = (props) => {
                 </div>
                 <button className={buttonClassName} />
             </div>
-            <a className="movies-card__link" target="_blank" rel="noreferrer">
+            <a className="movies-card__link" href="#" target="_blank" rel="noreferrer">
                 <img className="movies-card__image" src={movie.image} alt={movie.name} />
             </a>
         </li>
