@@ -1,9 +1,12 @@
 .footer {
+    position: relative;
+    margin-top: -172px;
     padding: 79px 70px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: #FAFAFA;
+    clear: both;
 }
 
 .footer__title {
@@ -67,6 +70,7 @@
 
 @media screen and (max-width: 480px) {
     .footer {
+        margin-top: -253px;
         padding-left: 10px;
         padding-right: 10px;
         align-items: center;
