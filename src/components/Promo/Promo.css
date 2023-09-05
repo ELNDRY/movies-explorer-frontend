@@ -62,7 +62,7 @@
     opacity: 0.7
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 805px) {
     .promo {
         flex-direction: column;
         padding: 140px 0 76px;

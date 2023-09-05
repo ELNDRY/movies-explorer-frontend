@@ -100,6 +100,12 @@
 
 }
 
+@media screen and (max-width: 680px) {
+    .techs__items {
+        grid-template-columns: repeat(4, 84px);
+    }
+}
+
 
 @media screen and (max-width: 480px) {
     .techs {
