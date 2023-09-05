@@ -15,8 +15,8 @@ export const AboutProject = () => {
                 </li>
             </ul>
             <div className='about-project__timeline'>
-                <div className='about-project__deadline'>1 неделя</div>
-                <div className='about-project__deadline'>4 недели</div>
+                <span className='about-project__deadline'>1 неделя</span>
+                <span className='about-project__deadline'>4 недели</span>
                 <p className='about-project__text'>Back-end</p>
                 <p className='about-project__text'>Front-end</p>
             </div>

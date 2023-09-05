@@ -15,24 +15,26 @@ export const Main = ({ isLoggedIn }) => {
         <>
             {!isLoggedIn
                 ? <Header isLoggedIn={isLoggedIn} isMainPage={true}>
-                    <div className="header__container header__container_main">
+                    <nav className="header__container header__container_main">
                         <NavLink className="header__link header__link_signup" to="/signup">
                             Регистрация
                         </NavLink>
                         <NavLink className="header__link header__link_signin" to="/signin">
                             Войти
                         </NavLink>
-                    </div>
+                    </nav>
                 </Header >
                 : <Navigation isMainPage={true} />
             }
-            <div className="main">
-                <Promo />
-                <AboutProject />
-                <Techs />
-                <AboutMe />
-                <Portfolio />
-            </div>
+            <main className="content">
+                <div className="main">
+                    <Promo />
+                    <AboutProject />
+                    <Techs />
+                    <AboutMe />
+                    <Portfolio />
+                </div>
+            </main>
             <Footer />
         </>
     );

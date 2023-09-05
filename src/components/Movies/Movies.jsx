@@ -9,13 +9,15 @@ export const Movies = () => {
     return (
         <>
             <Navigation />
-            <section className="movies">
-                <SearchForm />
-                <MoviesCardList movies={movies} isSavedMovies={false} />
-                <button className="movies__more" type="button">
-                    Ещё
-                </button>
-            </section>
+            <main className="content">
+                <section className="movies">
+                    <SearchForm />
+                    <MoviesCardList movies={movies} isSavedMovies={false} />
+                    <button className="movies__more" type="button">
+                        Ещё
+                    </button>
+                </section>
+            </main>
             <Footer />
         </>
     );

@@ -27,28 +27,30 @@ export const BurgerMenu = () => {
     return (
         <>
             <button
+                type="button"
                 onClick={handleBurgerOpen}
                 className="navigation__burger"
             ></button>
             {isBurgerOpen && <div className="navigation__overlay" onClick={handleBurgerClose} />}
             <div className={sideBarClassName}>
                 <button
+                    type="button"
                     className="burger__close-button"
                     onClick={handleBurgerClose}
                 ></button>
                 <div className="burger">
                     <ul className="burger__menu">
                         <li className="burger__menu-item">
-                            <NavLink className="burger__link" to="/">Главная</NavLink>
-                            <div className={`burger__underline${checkPathname('/') ? ' burger__underline_active' : ''}`} />
+                            <NavLink className={`burger__link${checkPathname('/') ? ' burger__link_underlined' : ''}`}
+                                to="/">Главная</NavLink>
                         </li>
                         <li className="burger__menu-item">
-                            <NavLink className="burger__link" to="/movies">Фильмы</NavLink>
-                            <div className={`burger__underline${checkPathname('/movies') ? ' burger__underline_active' : ''}`} />
+                            <NavLink className={`burger__link${checkPathname('/movies') ? ' burger__link_underlined' : ''}`}
+                                to="/movies">Фильмы</NavLink>
                         </li>
                         <li className="burger__menu-item">
-                            <NavLink className="burger__link" to="/saved-movies">Сохраненные фильмы</NavLink>
-                            <div className={`burger__underline${checkPathname('/saved-movies') ? ' burger__underline_active' : ''}`} />
+                            <NavLink className={`burger__link${checkPathname('/saved-movies') ? ' burger__link_underlined' : ''}`}
+                                to="/saved-movies">Сохраненные фильмы</NavLink>
                         </li>
                     </ul>
                     <AccountButton />

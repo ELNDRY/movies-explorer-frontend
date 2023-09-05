@@ -30,26 +30,24 @@ export const App = () => {
 
     return (
         <div className="page">
-            <main className="content">
-                <Routes>
-                    <Route path='/signup' element={<Register onRegister={handleRegister} />} />
-                    <Route path='/signin' element={<Login onLogin={handleLogin} />} />
-                    <Route path='/' element={<Main isLoggedIn={isLoggedIn} />} />
-                    <Route path='/movies' element={
-                        <ProtectedRoute isLoggedIn={isLoggedIn}>
-                            <Movies />
-                        </ProtectedRoute>} />
-                    <Route path='/saved-movies' element={
-                        <ProtectedRoute isLoggedIn={isLoggedIn}>
-                            <SavedMovies />
-                        </ProtectedRoute>} />
-                    <Route path='/profile' element={
-                        <ProtectedRoute isLoggedIn={isLoggedIn}>
-                            <Profile onLogout={handleLogout} />
-                        </ProtectedRoute>} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-            </main>
+            <Routes>
+                <Route path='/signup' element={<Register onRegister={handleRegister} />} />
+                <Route path='/signin' element={<Login onLogin={handleLogin} />} />
+                <Route path='/' element={<Main isLoggedIn={isLoggedIn} />} />
+                <Route path='/movies' element={
+                    <ProtectedRoute isLoggedIn={isLoggedIn}>
+                        <Movies />
+                    </ProtectedRoute>} />
+                <Route path='/saved-movies' element={
+                    <ProtectedRoute isLoggedIn={isLoggedIn}>
+                        <SavedMovies />
+                    </ProtectedRoute>} />
+                <Route path='/profile' element={
+                    <ProtectedRoute isLoggedIn={isLoggedIn}>
+                        <Profile onLogout={handleLogout} />
+                    </ProtectedRoute>} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
         </div>
     )
 }

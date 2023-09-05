@@ -8,10 +8,10 @@ export const Form = (props) => {
             <Link className='form__logo-link' to='/'>
                 <img src={logo} alt='Логотип Movies Explorer' />
             </Link>
-            <h2 className="form__title">{props.title}</h2>
+            <h1 className="form__title">{props.title}</h1>
             <form className="form__container" onSubmit={props.onSubmit}>
                 {props.children}
-            </form> 
+            </form>
         </div >
     )
 }

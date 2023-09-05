@@ -10,10 +10,12 @@ export const SavedMovies = () => {
     return (
         <>
             <Navigation />
-            <section className="movies">
-                <SearchForm />
-                <MoviesCardList movies={savedMovies} isSavedMovies={true}/>
-            </section>
+            <main className="content">
+                <section className="movies">
+                    <SearchForm />
+                    <MoviesCardList movies={savedMovies} isSavedMovies={true} />
+                </section>
+            </main>
             <Footer />
         </>
     );

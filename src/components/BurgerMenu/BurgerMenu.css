@@ -36,11 +36,13 @@
 }
 
 .burger__link {
+    display: inline-block;
     color: black;
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
+    padding-bottom: 4px;
 }
 
 .burger__link:hover {
@@ -48,15 +50,8 @@
     opacity: 0.7;
 }
 
-.burger__underline {
-    margin-top: 4px;
-    line-height: 0px;
+.burger__link_underlined {
     border-bottom: 2px solid black;
-    visibility: hidden;
-}
-
-.burger__underline_active {
-    visibility: visible;
 }
 
 @media screen and (max-width: 480px) {
@@ -74,7 +69,7 @@
         right: 13.5px;
     }
 
-    .burger__underline {
-        margin-top: 7px;
+    .burger__link {
+        padding-bottom: 7px;
     }
 }

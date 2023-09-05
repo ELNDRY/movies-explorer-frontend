@@ -20,15 +20,15 @@ export const MoviesCard = (props) => {
         buttonClassName = (`movies-card__button movies-card__button_${type}`);
     }
 
-// TODO movies-card__link href will lead to movie's trailer
+    // TODO movies-card__link href will lead to movie's trailer
     return (
         <li className="movies-card">
             <div className="movies-card__description">
                 <div className="movies-card__wrapper">
-                    <p className="movies-card__name">{movie.name}</p>
+                    <h2 className="movies-card__name">{movie.name}</h2>
                     <p className="movies-card__duration">{duration}</p>
                 </div>
-                <button className={buttonClassName} />
+                <button type="button" className={buttonClassName} />
             </div>
             <a className="movies-card__link" href="#" target="_blank" rel="noreferrer">
                 <img className="movies-card__image" src={movie.image} alt={movie.name} />
