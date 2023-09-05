@@ -97,15 +97,23 @@
 }
 
 .search-form__shorts {
+    margin: 0;
     /* Inter Regular */
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
 }
 
+@media screen and (max-width: 769px) {
+    .search-form {
+        padding-top: 86px;
+        padding-bottom: 62px;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .search-form {
-        padding-bottom: 50px;
+        padding: 98px 4px 50px;
     }
 
     .search-form__icon {
@@ -113,6 +121,8 @@
     }
 
     .search-form__bar {
+        align-items: flex-start;
+        padding-bottom: 9px;
         padding-left: 0;
     }
 

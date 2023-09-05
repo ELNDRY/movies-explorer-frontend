@@ -121,12 +121,19 @@
 @media screen and (max-width: 480px) {
     .form__container {
         align-items: center;
-        padding-top: 26px;
+        justify-content: flex-start;
+        padding-top: 56px;
         max-width: 260px;
+    }
+
+    .form {
+        width: 100%;
     }
 
     .form__title {
         text-align: center;
+        margin-top: 50px;
+        margin-bottom: 80px;
     }
 
     .form__submit-button_register {
@@ -142,7 +149,13 @@
         line-height: 14.52px;
     }
 
+    .form__link {
+        font-size: 12px;
+        line-height: 14.52px;
+    }
+
     .form__text {
+        margin-top: 14px;
         font-size: 12px;
         line-height: 14.52px;
     }

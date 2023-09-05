@@ -67,4 +67,16 @@
     .header {
         padding: 0 14px;
     }
+
+    .header__container_main {
+        gap: 14px;
+    }
+
+    .header__link {
+        font-size: 10px;
+    }
+
+    .header__link_signin {
+        padding: 5px 12px;
+    }
 }

@@ -72,6 +72,11 @@
         align-items: center;
     }
 
+    .footer__title {
+        font-size: 12px;
+        line-height: 14.5px;
+    }
+
     .footer__wrapper {
         padding-top: 30px;
         flex-direction: column;

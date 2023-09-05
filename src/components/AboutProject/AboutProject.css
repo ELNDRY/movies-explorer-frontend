@@ -85,9 +85,8 @@
     }
 
     .about-project__items {
-        margin-bottom: 60px;
-        flex-direction: column;
-        row-gap: 56px;
+        margin-bottom: 93px;
+        column-gap: 30px;
     }
 
     .about-project__subtitle {
@@ -119,7 +118,9 @@
     }
 
     .about-project__items {
-        column-gap: 16px;
+        flex-direction: column;
+        margin-bottom: 60px;
+        row-gap: 56px;
     }
 
     .about-project__subtitle {

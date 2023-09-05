@@ -40,15 +40,15 @@ export const BurgerMenu = () => {
                     <ul className="burger__menu">
                         <li className="burger__menu-item">
                             <NavLink className="burger__link" to="/">Главная</NavLink>
-                            {(checkPathname('/')) && <div className="burger__underline" />}
+                            <div className={`burger__underline${checkPathname('/') ? ' burger__underline_active' : ''}`} />
                         </li>
                         <li className="burger__menu-item">
                             <NavLink className="burger__link" to="/movies">Фильмы</NavLink>
-                            {(checkPathname('/movies')) && <div className="burger__underline" />}
+                            <div className={`burger__underline${checkPathname('/movies') ? ' burger__underline_active' : ''}`} />
                         </li>
                         <li className="burger__menu-item">
                             <NavLink className="burger__link" to="/saved-movies">Сохраненные фильмы</NavLink>
-                            {checkPathname('/saved-movies') && <div className="burger__underline" />}
+                            <div className={`burger__underline${checkPathname('/saved-movies') ? ' burger__underline_active' : ''}`} />
                         </li>
                     </ul>
                     <AccountButton />

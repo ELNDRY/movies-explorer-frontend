@@ -9,7 +9,7 @@ export const Form = (props) => {
                 <img src={logo} alt='Логотип Movies Explorer' />
             </Link>
             <h2 className="form__title">{props.title}</h2>
-            <form onSubmit={props.onSubmit}>
+            <form className="form" onSubmit={props.onSubmit}>
                 {props.children}
             </form> 
         </div >

@@ -21,7 +21,7 @@
 
 @media screen and (max-width: 480px) {
     .movies-card-list {
-        padding-top: 50px;
+        padding-top: 40px;
     }
 
     .movies-card-list__elements {

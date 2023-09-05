@@ -83,7 +83,13 @@
     }
 
     .techs__description {
+        margin-bottom: 83px;
         letter-spacing: -0.44px;
+    }
+
+    .techs__item {
+        width: 84px;
+        height: 57px;
     }
 
     .techs__item-text {
@@ -108,9 +114,10 @@
     }
 
     .techs__subtitle {
-        margin-bottom: 16px;
-        font-size: 18px;
-        line-height: 21.78px;
+        margin-bottom: 24px;
+        font-size: 30px;
+        line-height: 36.31px;
+        letter-spacing: -0.05em;
     }
 
     .techs__description {
@@ -120,12 +127,7 @@
     }
 
     .techs__items {
-        grid-template-columns: repeat(2, 90px);
-    }
-
-    .techs__item {
-        width: 84px;
-        height: 57px;
+        grid-template-columns: repeat(2, 84px);
     }
 
     .techs__item-text {

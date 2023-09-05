@@ -50,14 +50,28 @@
 
 .burger__underline {
     margin-top: 4px;
-    line-height: 0;
+    line-height: 0px;
     border-bottom: 2px solid black;
+    visibility: hidden;
+}
+
+.burger__underline_active {
+    visibility: visible;
 }
 
 @media screen and (max-width: 480px) {
+    .burger {
+        margin-top: 144px;
+        margin-bottom: 48px;
+    }
+
+    .burger__menu {
+        gap: 15px;
+    }
+
     .burger__close-button {
         top: 13.5px;
-        right: 13/5px;
+        right: 13.5px;
     }
 
     .burger__underline {
