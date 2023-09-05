@@ -12,6 +12,11 @@
     font-size: 0;
 }
 
+.form__logo-link:hover {
+    transition: opacity 0.2s;
+    opacity: 0.8;
+}
+
 .form__title {
     margin-top: 40px;
     margin-bottom: 40px;

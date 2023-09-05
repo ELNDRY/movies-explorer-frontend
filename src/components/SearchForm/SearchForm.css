@@ -44,6 +44,7 @@
     background-image: url('../../images/find-button.svg');
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .search-form__button:hover {
@@ -79,6 +80,11 @@
     transition: all 0.3s cubic-bezier(.42, 0, .58, 1);
     cursor: pointer;
     outline: none;
+}
+
+.search-form__checkbox-toggle:hover {
+    transition: opacity 0.2s;
+    opacity: 0.8;
 }
 
 .search-form__checkbox-slider {
