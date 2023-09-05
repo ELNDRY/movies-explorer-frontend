@@ -68,7 +68,7 @@
     line-height: 17px;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 800px) {
     .techs {
         padding: 90px 50px;
     }
@@ -100,7 +100,7 @@
 
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 760px) {
     .techs__items {
         grid-template-columns: repeat(4, 84px);
     }

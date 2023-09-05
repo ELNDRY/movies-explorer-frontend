@@ -76,9 +76,11 @@
 
 @media screen and (max-width: 1060px) {
     .about-me__photo {
+        width: 180px;
         margin-left: 20px;
     }
 }
+
 @media screen and (max-width: 769px) {
     .about-me {
         padding: 90px 50px;
@@ -110,10 +112,22 @@
 
 }
 
+@media screen and (max-width: 760px) {
+    .about-me__photo {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .about-me__photo {
+        width: 180px;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .about-me {
         padding: 70px 14px 70px;
-    } 
+    }
 
     .about-me__title {
         font-size: 18px;
