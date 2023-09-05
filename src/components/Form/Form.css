@@ -27,6 +27,7 @@
 }
 
 .form__label {
+    display: inline-block;
     margin: 0 0 10px;
     color: #A0A0A0;
     /* Inter Regular */
@@ -44,10 +45,15 @@
     border: none;
     outline: none;
     background-color: #F9F9F9;
+    border-radius: 8px;
     /* Inter Regular */
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
+}
+
+.form__input:focus {
+    outline: 1px solid #2BE080;
 }
 
 .form__input-error {
