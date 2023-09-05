@@ -15,7 +15,7 @@ export const Main = ({ isLoggedIn }) => {
         <>
             {!isLoggedIn
                 ? <Header isLoggedIn={isLoggedIn} isMainPage={true}>
-                    <div className="header__container_main">
+                    <div className="header__container header__container_main">
                         <NavLink className="header__link header__link_signup" to="/signup">
                             Регистрация
                         </NavLink>

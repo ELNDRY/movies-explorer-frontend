@@ -18,10 +18,10 @@ export const SearchForm = () => {
                 <label className="search-form__switch">
                     <input
                         id="toggle-checkbox"
-                        className="search-form__checkbox_toggle"
+                        className="search-form__checkbox-toggle"
                         type="checkbox"
                     />
-                    <span className="search-form__checkbox_slider" />
+                    <span className="search-form__checkbox-slider" />
                 </label>
                 <p className="search-form__shorts">Короткометражки</p>
             </div>

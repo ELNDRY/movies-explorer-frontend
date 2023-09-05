@@ -33,7 +33,7 @@
     align-items: center;
 }
 
-.movies-card-wrapper {
+.movies-card__wrapper {
     max-width: 280px;
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@
     line-height: 18px;
 }
 
-.card-movies__duration {
+.movies-card__duration {
     margin: 0;
     color: black;
     /* Inter Regular */

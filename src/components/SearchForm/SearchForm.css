@@ -60,7 +60,7 @@
     transition: opacity 0.3s ease;
 }
 
-.search-form__checkbox_toggle {
+.search-form__checkbox-toggle {
     width: 36px;
     height: 20px;
     margin: 0;
@@ -74,7 +74,7 @@
     outline: none;
 }
 
-.search-form__checkbox_slider {
+.search-form__checkbox-slider {
     width: 8px;
     height: 8px;
     position: absolute;
@@ -87,11 +87,11 @@
     transition: all 0.3s cubic-bezier(.42, 0, .58, 1);
 }
 
-.search-form__checkbox_toggle:checked {
+.search-form__checkbox-toggle:checked {
     background-color: #2BE080;
 }
 
-.search-form__checkbox_toggle:checked+.search-form__checkbox_slider {
+.search-form__checkbox-toggle:checked+.search-form__checkbox-slider {
     background-color: white;
     transform: translate(calc(100% + 6px));
 }

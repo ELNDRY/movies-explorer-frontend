@@ -24,9 +24,9 @@ export const MoviesCard = (props) => {
     return (
         <li className="movies-card">
             <div className="movies-card__description">
-                <div className="movies-card-wrapper">
+                <div className="movies-card__wrapper">
                     <p className="movies-card__name">{movie.name}</p>
-                    <p className="card-movies__duration">{duration}</p>
+                    <p className="movies-card__duration">{duration}</p>
                 </div>
                 <button className={buttonClassName} />
             </div>

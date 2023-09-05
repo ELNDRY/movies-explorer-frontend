@@ -16,7 +16,7 @@ export const DesktopMenu = ({ isMainPage }) => {
       };
 
     return (
-        <div className="destop-menu__container">
+        <div className="desktop-menu">
             <ul className="desktop-menu__links">
                 <li className="desktop-menu__item">
                     <NavLink className={checkPathname('/saved-movies') ? linkClassName : linkActiveClassName} to="/movies">
