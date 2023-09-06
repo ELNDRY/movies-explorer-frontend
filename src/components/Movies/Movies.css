@@ -2,6 +2,10 @@
     padding: 0 70px;
 }
 
+.movies_saved-movies {
+    padding-bottom: 140px;
+}
+
 .movies__more {
     width: 100%;
     padding: 11px 0 9px;

@@ -26,7 +26,7 @@ export const Main = ({ isLoggedIn }) => {
                 </Header >
                 : <Navigation isMainPage={true} />
             }
-            <main className="content">
+            <main className="content content_sticky-footer">
                 <div className="main">
                     <Promo />
                     <AboutProject />

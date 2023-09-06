@@ -9,7 +9,7 @@ export const Movies = () => {
     return (
         <>
             <Navigation />
-            <main className="content">
+            <main className="content content_sticky-footer">
                 <section className="movies">
                     <SearchForm />
                     <MoviesCardList movies={movies} isSavedMovies={false} />

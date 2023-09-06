@@ -8,13 +8,13 @@
     background-color: white;
 }
 
-.content {
+.content_sticky-footer {
     width: 100%;
     padding-bottom: 172px
 }
 
 @media screen and (max-width: 480px) {
-    .content {
+    .content_sticky-footer {
         padding-bottom: 253px;
     }
 }
