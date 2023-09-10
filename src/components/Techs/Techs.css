@@ -1,0 +1,144 @@
+.techs {
+    margin: 0;
+    padding: 100px 70px;
+    background-color: #F5F5F5;
+}
+
+.techs__title {
+    margin: 0 0 90px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid black;
+    /* Inter Regular */
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+}
+
+.techs__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.techs__subtitle {
+    margin: 0 0 26px;
+    /* Inter Regular */
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -0.88px;
+}
+
+.techs__description {
+    max-width: 460px;
+    margin: 0 0 100px;
+    text-align: center;
+    /* Inter Regular */
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.techs__items {
+    margin: 0;
+    padding: 0;
+    max-width: 690px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(84px, min-content));
+    gap: 10px;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.techs__item {
+    width: 90px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #E8E8E8;
+}
+
+.techs__item-text {
+    text-align: center;
+    /* Inter Regular */
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media screen and (max-width: 800px) {
+    .techs {
+        padding: 90px 50px;
+    }
+
+    .techs__title {
+        margin-bottom: 80px;
+        letter-spacing: -0.72px;
+    }
+
+    .techs__subtitle {
+        margin-bottom: 22px;
+    }
+
+    .techs__description {
+        margin-bottom: 83px;
+        letter-spacing: -0.44px;
+    }
+
+    .techs__item {
+        width: 84px;
+        height: 57px;
+    }
+
+    .techs__item-text {
+        font-size: 12px;
+        line-height: 14.52px;
+        letter-spacing: -0.48px;
+    }
+
+}
+
+@media screen and (max-width: 760px) {
+    .techs__items {
+        grid-template-columns: repeat(4, 84px);
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .techs {
+        padding: 70px 18px;
+    }
+
+    .techs__title {
+        font-size: 18px;
+        line-height: 21.78px;
+        padding-bottom: 28px;
+        margin-bottom: 60px;
+    }
+
+    .techs__subtitle {
+        margin-bottom: 24px;
+        font-size: 30px;
+        line-height: 36.31px;
+        letter-spacing: -0.05em;
+    }
+
+    .techs__description {
+        margin-bottom: 50px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .techs__items {
+        grid-template-columns: repeat(2, 84px);
+    }
+
+    .techs__item-text {
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: -0.48px;
+    }
+}

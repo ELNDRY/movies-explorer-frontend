@@ -1,0 +1,20 @@
+.page {
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 0;
+    font-family: 'Inter', 'Arial', sans-serif;
+    color: black;
+    background-color: white;
+}
+
+.content_sticky-footer {
+    width: 100%;
+    padding-bottom: 172px
+}
+
+@media screen and (max-width: 480px) {
+    .content_sticky-footer {
+        padding-bottom: 253px;
+    }
+}
