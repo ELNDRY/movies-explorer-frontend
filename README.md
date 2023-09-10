@@ -1,5 +1,6 @@
 # movies-explorer-frontend
 
 ## links
-figma layout - https://www.figma.com/file/WPZnRDtQ4PmXj5VAVcLZTJ/light-5?type=design&node-id=891-3857&mode=design&t=7sHSQ8wZpL4vKCCe-0
-which is **light-5**
+Figma layout link - https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/light-1?type=design&node-id=1-3992&mode=design&t=Mtfp02EMwnFEA8Eh-0
+Layout **light-5**
+
