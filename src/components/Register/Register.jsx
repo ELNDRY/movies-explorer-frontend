@@ -1,51 +1,56 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import { Form } from '../Form/Form';
+import { useForm } from 'react-hook-form'
+import { registerErrors, validName, validEmail, validPassword } from '../../utils/constants';
 
-export const Register = ({ onRegister }) => {
-    const [formValue, setFormValue] = useState({
-        name: '',
-        email: '',
-        password: ''
-    });
+export const Register = ({ onRegister, isLoggedIn, message }) => {
 
-    const handleChange = (evt) => {
-        const { name, value } = evt.target;
+    const {
+        register,
+        formState: { errors, isValid },
+        handleSubmit,
+    } = useForm({ mode: 'onChange' });
 
-        setFormValue({
-            ...formValue,
-            [name]: value
-        });
-    }
-
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
-        onRegister();
+    if (isLoggedIn) {
+        return (
+            <Navigate to='/' />
+        )
     }
 
     return (
         <main className="content">
             <section className="register">
-                <Form title="Добро пожаловать!" onSubmit={handleSubmit}>
+                <Form title="Добро пожаловать!" onSubmit={handleSubmit(onRegister)}>
                     <label className="form__label">Имя</label>
-                    <input id="name" className="form__input" name="name" type="text" placeholder="Имя"
-                        minLength="2" maxLength="40"
-                        onChange={handleChange}
-                        value={formValue.name} required />
-                    <span className="form__input-error name-error"></span>
+                    <input id="name" className="form__input" type="text" placeholder="Имя"
+                        {...register("name", {
+                            required: { value: true, message: registerErrors.name.required },
+                            minLength: { value: 2, message: registerErrors.name.minLength },
+                            maxLength: { value: 40, message: registerErrors.name.maxLength },
+                            pattern: { value: validName, message: registerErrors.name.pattern },
+                        })} />
+                    <span className="form__input-error name-error">{errors?.name?.message || ''}</span>
                     <label className="form__label">E-mail</label>
-                    <input className="form__input" name="email" type="email" placeholder="Email"
-                        onChange={handleChange}
-                        value={formValue.email} required />
-                    <span className="form__input-error email-error"></span>
+                    <input className="form__input" type="email" placeholder="Email"
+                        {...register("email", {
+                            required: { value: true, message: registerErrors.email.required },
+                            pattern: { value: validEmail, message: registerErrors.email.pattern },
+                        })} />
+                    <span className="form__input-error email-error">{errors?.email?.message || ''}</span>
                     <label className="form__label">Пароль</label>
-                    <input className="form__input" name="password" type="password" placeholder="Пароль"
-                        onChange={handleChange}
-                        minLength="6"
-                        maxLength="20"
-                        value={formValue.password} required />
-                    <span className="form__input-error password-error">Что-то пошло не так...</span>
-                    <button className="form__submit-button form__submit-button_register" type="submit">Зарегистрироваться</button>
+                    <input className="form__input" type="password" placeholder="Пароль"
+                        {...register("password", {
+                            required: { value: true, message: registerErrors.password.required },
+                            minLength: { value: 6, message: registerErrors.password.minLength },
+                            maxLength: { value: 20, message: registerErrors.password.maxLength },
+                            pattern: { value: validPassword, message: registerErrors.password.pattern },
+                        })} />
+                    <span className="form__input-error password-error">{errors?.password?.message || ''}</span>
+                    <div className='form__submit-register'>
+                        <span className="form__error">{message}</span>
+                        <button className="form__submit-button form__submit-button_register" disabled={!isValid} type="submit">Зарегистрироваться</button>
+                    </div>
                     <p className="form__text">Уже зарегистрированы?&nbsp;
                         <Link className="form__link" to="/signin">Войти</Link>
                     </p>

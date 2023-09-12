@@ -1,93 +1,3 @@
-import movie1 from '../images/movie1.png';
-import movie2 from '../images/movie2.png';
-import movie3 from '../images/movie3.png';
-import movie4 from '../images/movie4.png';
-import movie5 from '../images/movie5.png';
-import movie6 from '../images/movie6.png';
-import movie7 from '../images/movie7.png';
-import movie8 from '../images/movie8.png';
-import movie9 from '../images/movie9.png';
-import movie10 from '../images/movie10.png';
-import movie11 from '../images/movie11.png';
-import movie12 from '../images/movie12.png';
-
-export const movies = [
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie1,
-        isSaved: true,
-    },
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie2,
-        isSaved: false,
-    },
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie3,
-        isSaved: true,
-    },
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie4,
-        isSaved: true,
-    },
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie5,
-        isSaved: true,
-    },
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie6,
-        isSaved: false,
-    },
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie7,
-        isSaved: false,
-    },
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie8,
-        isSaved: false,
-    },
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie9,
-        isSaved: false,
-    },
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie10,
-        isSaved: false,
-    },
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie11,
-        isSaved: false,
-    },
-    {
-        name: '33 слова о дизайне',
-        duration: 6420,
-        image: movie12,
-        isSaved: false,
-    },
-];
-
-export const savedMovies = movies.filter((movie) => movie.isSaved);
-
 export const resolutionDesktop = {
     width: 1280,
     cardsCount: 12,
@@ -102,3 +12,32 @@ export const resolutionMobile = {
     width: 480,
     cardsCount: 5,
 };
+
+export const registerErrors = {
+    name: {
+        required: 'Поле Имя является обязательным.',
+        minLength: 'Имя должно содержать не менее 2 символов.',
+        maxLength: 'Имя не должно быть длиннее 30 символов.',
+        pattern: 'Имя может содержать только латиницу, кириллицу и пробел, апостроф, дефис.',
+    },
+    email: {
+        required: 'Поле E-mail является обязательным.',
+        pattern: 'Некорректный email-адрес.',
+    },
+    password: {
+        required: 'Поле Пароль является обязательным.',
+        minLength: 'Пароль должен содержать не менее 6 символов.',
+        maxLength: 'Пароль не должен быть длиннее 20 символов.',
+        pattern: 'Пароль должен быть длиннее 5 символов и содержать по крайней мере 1 букву и 1 цифру'
+    },
+};
+
+export const validName = /^[а-я А-ЯёЁa-zA-Z0-9'-]+$/;
+export const validEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+
+//Minimum six characters, at least one letter and one number:
+export const validPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
+
+export const SHORT_MOVIE_DURATION = 40;
+export const SHOW_MORE_DESKTOP = 3;
+export const SHOW_MORE_TABLET = 2;
