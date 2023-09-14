@@ -19,7 +19,7 @@ export const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [currentUser, setCurrentUser] = useState(null);
     const [message, setMessage] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(null);
     const [movies, setMovies] = useState([]);
     const [query, setQuery] = useState(null);
     const [querySaved, setQuerySaved] = useState(null);
@@ -29,9 +29,6 @@ export const App = () => {
     const navigate = useNavigate();
 
     const filterMovies = (movies, query, areShorts) => {
-        console.log(query)
-        console.log(areShorts)
-
         let filteredMovies = [];
 
         if (query) {
@@ -58,7 +55,7 @@ export const App = () => {
                 setIsLoggedIn(false)
                 console.log(err);
             })
-    }, [])
+    }, [isLoggedIn, navigate])
 
     const handleLogin = ({ email, password }) => {
         auth.login(email, password)
@@ -86,6 +83,9 @@ export const App = () => {
                 setCurrentUser(null);
                 navigate("/", { replace: true });
                 localStorage.clear();
+                setQuery(null);
+                setAreShorts(null);
+                setMovies([]);
             })
             .catch((err) => {
                 console.error(err);
@@ -127,15 +127,15 @@ export const App = () => {
     }
 
     useEffect(() => {
-        setMovies(JSON.parse(localStorage.getItem('movies')) || []);
-        setQuery(JSON.parse(localStorage.getItem('query')));
-        setAreShorts(JSON.parse(localStorage.getItem('areShorts' || false)))
-    }, []);
-
-    useEffect(() => {
         setQuerySaved(null);
         setAreShortsSaved(false);
     }, [navigate])
+
+    useEffect(() => {
+        setMovies(JSON.parse(localStorage.getItem('movies')) || []);
+        setQuery(JSON.parse(localStorage.getItem('query')));
+        setAreShorts(JSON.parse(localStorage.getItem('areShorts' || false)))
+    }, [])
 
     const handleSearch = (query) => {
         if (movies.length === 0) {
@@ -176,6 +176,7 @@ export const App = () => {
             })
             .catch((err) => console.log(err))
     }
+
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
