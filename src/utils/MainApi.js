@@ -1,6 +1,6 @@
 class MainApi {
     constructor({ headers }) {
-        this._url = this._url = process.env.NODE_ENV === 'production' ? 'api.elndry.movie-explorer.nomoreparties.co' : 'http//localhost:3000';
+        this._url = process.env.NODE_ENV === 'production' ? 'https://api.elndry.movie-explorer.nomoreparties.co' : 'http//localhost:3000';
         this._headers = headers;
     }
 
