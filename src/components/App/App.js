@@ -12,19 +12,47 @@ import { ProtectedRoute } from '../ProtectedRoute/ProtectedRoute';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { mainApi } from '../../utils/MainApi';
 import { auth } from '../../utils/auth';
+import { moviesApi } from '../../utils/MoviesApi';
+import { SHORT_MOVIE_DURATION } from '../../utils/constants';
 
 export const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [currentUser, setCurrentUser] = useState(null);
     const [message, setMessage] = useState('');
-
+    const [isLoading, setIsLoading] = useState(false);
+    const [movies, setMovies] = useState([]);
+    const [query, setQuery] = useState(null);
+    const [querySaved, setQuerySaved] = useState(null);
+    const [savedMovies, setSavedMovies] = useState([]);
+    const [areShorts, setAreShorts] = useState(false);
+    const [areShortsSaved, setAreShortsSaved] = useState(false);
     const navigate = useNavigate();
 
+    const filterMovies = (movies, query, areShorts) => {
+        console.log(query)
+        console.log(areShorts)
+
+        let filteredMovies = [];
+
+        if (query) {
+            filteredMovies = movies.filter(movie => (!areShorts || ((movie.duration <= SHORT_MOVIE_DURATION) && (areShorts))) &&
+                ((movie.nameRU.toLowerCase().includes(query.query.toLowerCase())) || (movie.nameEN.toLowerCase().includes(query.query.toLowerCase()))))
+        } else {
+            if (areShorts) {
+                filteredMovies = movies.filter(movie => movie.duration <= SHORT_MOVIE_DURATION)
+            } else {
+                filteredMovies = movies;
+            }
+        }
+        return filteredMovies;
+    }
+
     useEffect(() => {
-        Promise.all([mainApi.getUserInfo()])
-            .then(([user]) => {
+        Promise.all([mainApi.getUserInfo(), mainApi.getMovies()])
+            .then(([user, savedMovies]) => {
                 setIsLoggedIn(true);
                 setCurrentUser(user);
+                setSavedMovies(savedMovies);
             })
             .catch((err) => {
                 setIsLoggedIn(false)
@@ -98,6 +126,57 @@ export const App = () => {
             })
     }
 
+    useEffect(() => {
+        setMovies(JSON.parse(localStorage.getItem('movies')) || []);
+        setQuery(JSON.parse(localStorage.getItem('query')));
+        setAreShorts(JSON.parse(localStorage.getItem('areShorts' || false)))
+    }, []);
+
+    useEffect(() => {
+        setQuerySaved(null);
+        setAreShortsSaved(false);
+    }, [navigate])
+
+    const handleSearch = (query) => {
+        if (movies.length === 0) {
+            setIsLoading(true);
+            moviesApi.getMovies()
+                .then((movies) => {
+                    localStorage.setItem('movies', JSON.stringify(movies));
+                    setMovies(movies);
+                    setMessage('');
+                })
+                .catch(() => setMessage('Во время запроса произошла ошибка.'))
+                .finally(() => setIsLoading(false));
+        }
+        localStorage.setItem('query', JSON.stringify(query));
+        setQuery(query);
+    };
+
+    const handleShortsSavedMovies = (areShortsSaved) => {
+        setAreShortsSaved(areShortsSaved);
+    };
+
+    const handleAddMovie = (movie) => {
+        mainApi.addMovie(movie)
+            .then((movie) => {
+                setMessage('')
+                setSavedMovies(savedMovies => [...savedMovies, movie]);
+            })
+            .catch((err) => console.log(err))
+    }
+
+    const handleDeleteMovie = ({ movieId }) => {
+        console.log(movieId);
+        const movie = savedMovies.find(movie => movie.movieId === movieId);
+        mainApi.deleteMovie(movie._id)
+            .then(() => {
+                setMessage('')
+                setSavedMovies((state) => state.filter((item) => item._id !== movie._id));
+            })
+            .catch((err) => console.log(err))
+    }
+
     return (
         <CurrentUserContext.Provider value={currentUser}>
             <div className="page">
@@ -107,11 +186,27 @@ export const App = () => {
                     <Route path='/' element={<Main isLoggedIn={isLoggedIn} />} />
                     <Route path='/movies' element={
                         <ProtectedRoute isLoggedIn={isLoggedIn}>
-                            <Movies />
+                            <Movies query={query}
+                                areShorts={areShorts}
+                                onCheckboxClick={setAreShorts}
+                                message={message}
+                                onSearch={handleSearch}
+                                onAddMovie={handleAddMovie}
+                                onDeleteMovie={handleDeleteMovie}
+                                isLoading={isLoading}
+                                movies={filterMovies(movies, query, areShorts)}
+                                savedMovies={savedMovies} />
                         </ProtectedRoute>} />
                     <Route path='/saved-movies' element={
-                        <ProtectedRoute>
-                            <SavedMovies />
+                        <ProtectedRoute isLoggedIn={isLoggedIn}>
+                            <SavedMovies query={querySaved}
+                                areShorts={areShortsSaved}
+                                onCheckboxClick={handleShortsSavedMovies}
+                                message={message}
+                                onSearch={setQuerySaved}
+                                onDeleteMovie={handleDeleteMovie}
+                                isLoading={isLoading}
+                                movies={filterMovies(savedMovies, querySaved, areShortsSaved)} />
                         </ProtectedRoute>} />
                     <Route path='/profile' element={
                         <ProtectedRoute isLoggedIn={isLoggedIn}>
