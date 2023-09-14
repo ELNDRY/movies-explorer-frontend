@@ -1,7 +1,6 @@
 class Auth {
     constructor() {
-        //this._url = process.env.NODE_ENV === 'production' ? 'https://api.elndry.movie-explorer.nomoreparties.co' : 'http//localhost:3000';
-        this._url = 'https://api.elndry.movie-explorer.nomoreparties.co'
+        this._url = process.env.NODE_ENV === 'production' ? 'https://api.elndry.movie-explorer.nomoreparties.co' : 'http//localhost:3000';
     }
 
     _checkResponse(res) {
