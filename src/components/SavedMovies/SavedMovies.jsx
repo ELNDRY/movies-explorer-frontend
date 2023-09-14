@@ -6,7 +6,7 @@ import { Preloader } from "../Preloader/Preloader";
 import '../Movies/Movies.css'
 
 export const SavedMovies = ({ query, areShorts, onCheckboxClick, message, onSearch, onDeleteMovie, isLoading, movies }) => {
-    const showAlert = query && (movies.length === 0);
+    const isAlertShown = query && (movies.length === 0);
 
     return (
         <>
@@ -23,7 +23,7 @@ export const SavedMovies = ({ query, areShorts, onCheckboxClick, message, onSear
                     {isLoading ?
                         <Preloader />
                         :
-                        (showAlert ?
+                        (isAlertShown ?
                             <p className="movies__alert-message">{message || `Ничего не найдено.`}</p>
                             :
                             (<MoviesCardList movies={movies}

@@ -1,24 +1,8 @@
 import { MoviesCard } from "../MoviesCard/MoviesCard";
 import "./MoviesCardList.css";
-import { resolutionMobile, resolutionTablet, resolutionDesktop } from "../../utils/constants";
-import { useEffect, useState } from "react";
-import { useWindowSize } from "../../hooks/useWindowSize";
 
-export const MoviesCardList = ({ movies, savedMovies, onAddMovie, onDeleteMovie, isSavedMovies }) => {
-
-    const windowSize = useWindowSize()
-    const [cardsCount, setCardsCount] = useState(resolutionDesktop.cardsCount)
-
-    useEffect(() => {
-        if (windowSize.width > resolutionTablet.width) {
-            setCardsCount(resolutionDesktop.cardsCount);
-        } else if (windowSize.width > resolutionMobile.width) {
-            setCardsCount(resolutionTablet.cardsCount);
-        } else {
-            setCardsCount(resolutionMobile.cardsCount);
-        }
-    }, [windowSize]);
-
+export const MoviesCardList = ({ movies, savedMovies, onAddMovie, onDeleteMovie, isSavedMovies, cardsCount }) => {
+    
     const renderMovie = (movie) => {
         const isSavedMovie = isSavedMovies ? true : (savedMovies.some(m => movie.id === m.movieId) ? true : false);
         const onClick = isSavedMovie ? onDeleteMovie : onAddMovie;

@@ -5,8 +5,10 @@ import { Footer } from '../Footer/Footer'
 import { Preloader } from "../Preloader/Preloader";
 import "./Movies.css";
 
-export const Movies = ({ query, areShorts, onCheckboxClick, message, onSearch, onAddMovie, onDeleteMovie, isLoading, movies, savedMovies }) => {
-    const showAlert = query && (movies.length === 0);
+export const Movies = ({ query, areShorts, onCheckboxClick, message, onSearch,
+    onAddMovie, onDeleteMovie, isLoading, movies, savedMovies, cardsCount, onLoadMore }) => {
+    const isAlertShown = query && (movies.length === 0);
+    const isLoadMoreShown = movies.length > cardsCount;
 
     return (
         <>
@@ -23,17 +25,19 @@ export const Movies = ({ query, areShorts, onCheckboxClick, message, onSearch, o
                     {isLoading ?
                         <Preloader />
                         :
-                        (showAlert ?
+                        (isAlertShown ?
                             <p className="movies__alert-message">{message || `Ничего не найдено.`}</p>
                             :
                             (<MoviesCardList movies={movies}
                                 savedMovies={savedMovies}
                                 onAddMovie={onAddMovie}
                                 onDeleteMovie={onDeleteMovie}
-                                isSavedMovies={false} />))}
-                    <button className="movies__more" type="button">
+                                isSavedMovies={false}
+                                cardsCount={cardsCount}
+                            />))}
+                    {isLoadMoreShown && <button className="movies__more" type="button" onClick={onLoadMore}>
                         Ещё
-                    </button>
+                    </button>}
                 </section>
             </main>
             <Footer />

@@ -13,7 +13,8 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { mainApi } from '../../utils/MainApi';
 import { auth } from '../../utils/auth';
 import { moviesApi } from '../../utils/MoviesApi';
-import { SHORT_MOVIE_DURATION } from '../../utils/constants';
+import { SHORT_MOVIE_DURATION, resolutionMobile, resolutionTablet, resolutionDesktop } from '../../utils/constants';
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 export const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -26,6 +27,9 @@ export const App = () => {
     const [savedMovies, setSavedMovies] = useState([]);
     const [areShorts, setAreShorts] = useState(false);
     const [areShortsSaved, setAreShortsSaved] = useState(false);
+    const windowSize = useWindowSize();
+    const [cardsCount, setCardsCount] = useState(0);
+    const [cardsToAdd, setCardsToAdd] = useState(0);
     const navigate = useNavigate();
 
     const filterMovies = (movies, query, areShorts) => {
@@ -56,6 +60,28 @@ export const App = () => {
                 console.log(err);
             })
     }, [isLoggedIn, navigate])
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (windowSize.width > resolutionTablet.width) {
+                setCardsToAdd(resolutionDesktop.cardsToAdd);
+            } else {
+                setCardsToAdd(resolutionTablet.cardsToAdd);
+            }
+        }, 2000);
+    }, [windowSize]);
+
+    useEffect(() => {
+        if (windowSize.width > resolutionTablet.width) {
+            setCardsCount(resolutionDesktop.cardsCount);
+            setCardsToAdd(resolutionDesktop.cardsToAdd);
+        } else if (windowSize.width > resolutionMobile.width) {
+            setCardsCount(resolutionTablet.cardsCount);
+            setCardsToAdd(resolutionTablet.cardsToAdd);
+        } else {
+            setCardsCount(resolutionMobile.cardsCount);
+        }
+    }, [movies]);
 
     const handleLogin = ({ email, password }) => {
         auth.login(email, password)
@@ -177,6 +203,9 @@ export const App = () => {
             .catch((err) => console.log(err))
     }
 
+    const handleLoadMore = () => {
+        setCardsCount(currentCardsCount => currentCardsCount + cardsToAdd);
+    }
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
@@ -196,7 +225,10 @@ export const App = () => {
                                 onDeleteMovie={handleDeleteMovie}
                                 isLoading={isLoading}
                                 movies={filterMovies(movies, query, areShorts)}
-                                savedMovies={savedMovies} />
+                                savedMovies={savedMovies}
+                                cardsCount={cardsCount}
+                                onLoadMore={handleLoadMore}
+                            />
                         </ProtectedRoute>} />
                     <Route path='/saved-movies' element={
                         <ProtectedRoute isLoggedIn={isLoggedIn}>

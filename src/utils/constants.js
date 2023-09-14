@@ -1,11 +1,13 @@
 export const resolutionDesktop = {
     width: 1280,
     cardsCount: 12,
+    cardsToAdd: 3,
 };
 
 export const resolutionTablet = {
     width: 769,
     cardsCount: 8,
+    cardsToAdd: 2,
 };
 
 export const resolutionMobile = {
