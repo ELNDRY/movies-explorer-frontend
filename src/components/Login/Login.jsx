@@ -35,7 +35,6 @@ export const Login = ({ onLogin, isLoggedIn, message }) => {
                             required: { value: true, message: registerErrors.password.required },
                             minLength: { value: 6, message: registerErrors.password.minLength },
                             maxLength: { value: 20, message: registerErrors.password.maxLength },
-                            pattern: { value: validPassword, message: registerErrors.password.pattern },
                         })} />
                     <span className="form__input-error password-error">{errors?.password?.message || ''}</span>
                     <div className='form__submit-login'>
