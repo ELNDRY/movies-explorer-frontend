@@ -5,14 +5,15 @@ export const resolutionDesktop = {
 };
 
 export const resolutionTablet = {
-    width: 769,
+    width: 1104,
     cardsCount: 8,
     cardsToAdd: 2,
 };
 
 export const resolutionMobile = {
-    width: 480,
+    width: 706,
     cardsCount: 5,
+    cardsToAdd: 2,
 };
 
 export const registerErrors = {
@@ -41,5 +42,3 @@ export const validEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
 export const validPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
 
 export const SHORT_MOVIE_DURATION = 40;
-export const SHOW_MORE_DESKTOP = 3;
-export const SHOW_MORE_TABLET = 2;

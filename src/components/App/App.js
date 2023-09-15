@@ -80,8 +80,9 @@ export const App = () => {
             setCardsToAdd(resolutionTablet.cardsToAdd);
         } else {
             setCardsCount(resolutionMobile.cardsCount);
+            setCardsToAdd(resolutionMobile.cardsToAdd);
         }
-    }, [movies]);
+    }, [query, areShorts]);
 
     const handleLogin = ({ email, password }) => {
         auth.login(email, password)
