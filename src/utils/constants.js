@@ -5,13 +5,13 @@ export const resolutionDesktop = {
 };
 
 export const resolutionTablet = {
-    width: 1104,
+    width: 1044,
     cardsCount: 8,
     cardsToAdd: 2,
 };
 
 export const resolutionMobile = {
-    width: 706,
+    width: 666,
     cardsCount: 5,
     cardsToAdd: 2,
 };
