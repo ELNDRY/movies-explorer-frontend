@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Form } from '../Form/Form';
 import { useForm } from 'react-hook-form'
-import { registerErrors, validName, validEmail, validPassword } from '../../utils/constants';
+import { registerErrors, validName, validEmail } from '../../utils/constants';
 
 export const Register = ({ onRegister, isLoggedIn, message }) => {
 

@@ -36,7 +36,10 @@ export const registerErrors = {
 };
 
 export const validName = /^[а-я А-ЯёЁa-zA-Z0-9'-]+$/;
-export const validEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+export const validEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i 
+
+//search word is not entirely made up of whitespaces
+export const validMovieSearch = /^(?!^\s*$).+/
 
 //Minimum six characters, at least one letter and one number:
 export const validPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/

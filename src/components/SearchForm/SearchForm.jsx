@@ -5,7 +5,7 @@ export const SearchForm = ({ query, isSavedMovies, areShorts, onCheckboxClick, o
     const {
         register,
         handleSubmit,
-    } = useForm({ mode: 'onSubmit' });
+    } = useForm({ reValidateMode: 'onSubmit' });
 
     const handleCheckboxToggle = (evt) => {
         const input = evt.target
@@ -26,7 +26,7 @@ export const SearchForm = ({ query, isSavedMovies, areShorts, onCheckboxClick, o
                         defaultValue={query?.query || ''}
                         disabled={isLoading}
                         {...register("query", {
-                            required: { value: true, message: 'Поле Фильм является обязательным' },
+                            // required: { value: true, message: 'Поле Фильм является обязательным' },
                         })}
                     ></input>
                     <button type="submit" className="search-form__button" disabled={isLoading} aria-label="Искать"></button>

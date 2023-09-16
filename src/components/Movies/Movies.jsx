@@ -3,12 +3,16 @@ import { MoviesCardList } from "../MoviesCardList/MoviesCardList";
 import { Navigation } from '../Navigation/Navigation';
 import { Footer } from '../Footer/Footer'
 import { Preloader } from "../Preloader/Preloader";
+import { validMovieSearch } from "../../utils/constants";
 import "./Movies.css";
 
 export const Movies = ({ query, areShorts, onCheckboxClick, message, onSearch,
     onAddMovie, onDeleteMovie, isLoading, movies, savedMovies, cardsCount, onLoadMore }) => {
-    const isAlertShown = query && (movies.length === 0);
+    const isQueryValid = validMovieSearch.test(query?.query);
+    const isAlertShown = (query && (movies.length === 0)) || !isQueryValid;
     const isLoadMoreShown = movies.length > cardsCount;
+
+    console.log(query)
 
     return (
         <>
@@ -26,7 +30,8 @@ export const Movies = ({ query, areShorts, onCheckboxClick, message, onSearch,
                         <Preloader />
                         :
                         (isAlertShown ?
-                            <p className="movies__alert-message">{message || `Ничего не найдено.`}</p>
+                            <p className="movies__alert-message">{isQueryValid ? (message || `Ничего не найдено.`)
+                                : 'Нужно ввести ключевое слово'}</p>
                             :
                             (<MoviesCardList movies={movies}
                                 savedMovies={savedMovies}
@@ -35,7 +40,7 @@ export const Movies = ({ query, areShorts, onCheckboxClick, message, onSearch,
                                 isSavedMovies={false}
                                 cardsCount={cardsCount}
                             />))}
-                    {isLoadMoreShown && <button className="movies__more" type="button" onClick={onLoadMore}>
+                    {isLoadMoreShown && isQueryValid && <button className="movies__more" type="button" onClick={onLoadMore}>
                         Ещё
                     </button>}
                 </section>
