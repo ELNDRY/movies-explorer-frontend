@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Header } from '../Header/Header';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { DesktopMenu } from '../DesktopMenu/DesktopMenu';
-import { resolutionTablet } from '../../utils/constants';
 import { useWindowSize } from '../../hooks/useWindowSize';
 import '../Navigation/Navigation.css';
 
@@ -11,7 +10,7 @@ export const Navigation = ({ isMainPage }) => {
   const windowSize = useWindowSize()
 
   useEffect(() => {
-    setIsResoluyionDesktop(windowSize.width > resolutionTablet.width);
+    setIsResoluyionDesktop(windowSize.width > 769);
   }, [windowSize]);
 
   return (

@@ -4,6 +4,7 @@ import "./NotFound.css"
 
 export const NotFound = () => {
     const navigate = useNavigate();
+
     return (
         <main className="content">
             <section className="not-found">

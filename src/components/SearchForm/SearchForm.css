@@ -121,6 +121,15 @@
     line-height: 18px;
 }
 
+.search-form__alert-message {
+    text-align: center;
+    color: black;
+    padding: 20px;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 20px;
+}
+
 @media screen and (max-width: 769px) {
     .search-form {
         padding-top: 86px;
