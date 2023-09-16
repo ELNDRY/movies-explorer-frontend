@@ -4,7 +4,7 @@ import { Form } from '../Form/Form';
 import { useForm } from 'react-hook-form'
 import { registerErrors, validName, validEmail } from '../../utils/constants';
 
-export const Register = ({ onRegister, isLoggedIn, message }) => {
+export const Register = ({ isLoading, onRegister, isLoggedIn, message }) => {
 
     const {
         register,
@@ -48,7 +48,7 @@ export const Register = ({ onRegister, isLoggedIn, message }) => {
                     <span className="form__input-error password-error">{errors?.password?.message || ''}</span>
                     <div className='form__submit-register'>
                         <span className="form__error">{message}</span>
-                        <button className="form__submit-button form__submit-button_register" disabled={!isValid} type="submit">Зарегистрироваться</button>
+                        <button className="form__submit-button form__submit-button_register" disabled={!isValid || isLoading} type="submit">Зарегистрироваться</button>
                     </div>
                     <p className="form__text">Уже зарегистрированы?&nbsp;
                         <Link className="form__link" to="/signin">Войти</Link>

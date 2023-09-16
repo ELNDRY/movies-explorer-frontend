@@ -143,6 +143,7 @@ export const App = () => {
     }
 
     const handleUpdateUser = ({ name, email }) => {
+        setIsLoading(true);
         mainApi.editUserInfo({ name, email })
             .then((userInfo) => {
                 setCurrentUser(userInfo);
@@ -153,6 +154,7 @@ export const App = () => {
                 setMessage('При редактировании профиля произошла ошибка.');
             })
             .finally(() => {
+                setIsLoading(false)
                 setTimeout(() => {
                     setMessage('');
                 }, 2000);
@@ -218,8 +220,8 @@ export const App = () => {
         <CurrentUserContext.Provider value={currentUser}>
             <div className="page">
                 <Routes>
-                    <Route path='/signup' element={<Register onRegister={handleRegister} isLoggedIn={isLoggedIn} message={message} />} />
-                    <Route path='/signin' element={<Login onLogin={handleLogin} isLoggedIn={isLoggedIn} message={message} />} />
+                    <Route path='/signup' element={<Register isLoading={isLoading} onRegister={handleRegister} isLoggedIn={isLoggedIn} message={message} />} />
+                    <Route path='/signin' element={<Login isLoading={isLoading} onLogin={handleLogin} isLoggedIn={isLoggedIn} message={message} />} />
                     <Route path='/' element={<Main isLoggedIn={isLoggedIn} />} />
                     <Route path='/movies' element={
                         <ProtectedRoute isLoggedIn={isLoggedIn}>
@@ -250,7 +252,7 @@ export const App = () => {
                         </ProtectedRoute>} />
                     <Route path='/profile' element={
                         <ProtectedRoute isLoggedIn={isLoggedIn}>
-                            <Profile onLogout={handleLogout} onEdit={handleUpdateUser} message={message} />
+                            <Profile isLoading={isLoading} onLogout={handleLogout} onEdit={handleUpdateUser} message={message} />
                         </ProtectedRoute>} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

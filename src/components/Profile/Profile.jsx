@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { registerErrors, validName, validEmail } from "../../utils/constants";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-export const Profile = ({ onLogout, onEdit, message }) => {
+export const Profile = ({ isLoading, onLogout, onEdit, message }) => {
     const currentUser = useContext(CurrentUserContext);
     const [isEditing, setIsEditing] = useState(false);
 
@@ -82,7 +82,7 @@ export const Profile = ({ onLogout, onEdit, message }) => {
                                 placeholder="Укажите email"
                                 id="email"
                                 type="email"
-                                disabled={!isEditing}
+                                disabled={!isEditing || isLoading}
                                 {...register("email", {
                                     required: { value: true, message: registerErrors.email.required },
                                     pattern: { value: validEmail, message: registerErrors.email.pattern },
