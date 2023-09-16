@@ -11,21 +11,29 @@ export const Profile = ({ onLogout, onEdit, message }) => {
     const currentUser = useContext(CurrentUserContext);
     const [isEditing, setIsEditing] = useState(false);
 
-    const [name, setName] = useState(null);
-    const [email, setEmail] = useState(null);
-
     const {
         register,
         formState: { errors, isValid, isDirty, isSubmitSuccessful },
         handleSubmit,
         reset
-    } = useForm({ mode: 'onChange' });
+    } = useForm({
+        mode: 'onChange',
+        defaultValues: {
+            name: currentUser?.name,
+            email: currentUser?.email
+        }
+    });
 
     useEffect(() => {
         if (isSubmitSuccessful) {
             reset({}, { keepValues: true });
         }
     }, [isSubmitSuccessful, reset]);
+
+    useEffect(() => {
+        reset(currentUser);
+    }, [currentUser]);
+
 
     const handleLogout = (evt) => {
         evt.preventDefault();
@@ -46,20 +54,12 @@ export const Profile = ({ onLogout, onEdit, message }) => {
         onEdit({ name, email });
     };
 
-    useEffect(() => {
-        if (!isEditing) {
-            setName(currentUser?.name);
-            setEmail(currentUser?.email);
-        }
-    }, [isEditing, currentUser]);
-
-
     return (
         <>
             <Navigation />
             <main className="content">
                 <section className="profile">
-                    <h1 className="profile__title">Привет, {name}!</h1>
+                    <h1 className="profile__title">Привет, {currentUser?.name}!</h1>
                     <form className="profile__form" onSubmit={handleSubmit(onSubmit)}>
                         <div className="profile__form-input">
                             <label className="profile__text">Имя</label>
@@ -67,7 +67,6 @@ export const Profile = ({ onLogout, onEdit, message }) => {
                                 placeholder="Укажите имя"
                                 type="text"
                                 disabled={!isEditing}
-                                defaultValue={name}
                                 {...register("name", {
                                     required: { value: true, message: registerErrors.name.required },
                                     minLength: { value: 2, message: registerErrors.name.minLength },
@@ -84,7 +83,6 @@ export const Profile = ({ onLogout, onEdit, message }) => {
                                 id="email"
                                 type="email"
                                 disabled={!isEditing}
-                                defaultValue={email}
                                 {...register("email", {
                                     required: { value: true, message: registerErrors.email.required },
                                     pattern: { value: validEmail, message: registerErrors.email.pattern },
