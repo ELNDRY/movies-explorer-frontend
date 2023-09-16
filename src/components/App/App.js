@@ -89,9 +89,6 @@ export const App = () => {
             .then(() => {
                 setIsLoggedIn(true);
                 setMessage('Успешная авторизация.');
-                setTimeout(() => {
-                    setMessage('');
-                }, 2000);
                 navigate("/movies", { replace: true });
             })
             .catch((err) => {
@@ -100,6 +97,11 @@ export const App = () => {
                 } else {
                     setMessage("При авторизации произошла ошибка.");
                 }
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    setMessage('');
+                }, 2000);
             })
     }
 
@@ -124,9 +126,6 @@ export const App = () => {
             .then(() => {
                 setIsLoggedIn(true);
                 setMessage('Успешная регистрация.');
-                setTimeout(() => {
-                    setMessage('');
-                }, 2000);
                 navigate("/movies", { replace: true });
             })
             .catch((err) => {
@@ -136,6 +135,11 @@ export const App = () => {
                     setMessage('При регистрации произошла ошибка.')
                 }
             })
+            .finally(() => {
+                setTimeout(() => {
+                    setMessage('');
+                }, 2000);
+            })
     }
 
     const handleUpdateUser = ({ name, email }) => {
@@ -143,13 +147,15 @@ export const App = () => {
             .then((userInfo) => {
                 setCurrentUser(userInfo);
                 setMessage('Профиль успешно редактирован.');
-                setTimeout(() => {
-                    setMessage('');
-                }, 2000);
             })
             .catch((err) => {
                 console.error(err);
                 setMessage('При редактировании профиля произошла ошибка.');
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    setMessage('');
+                }, 2000);
             })
     }
 
